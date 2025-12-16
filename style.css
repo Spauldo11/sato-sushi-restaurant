@@ -1,0 +1,487 @@
+/*
+    ======================================
+    BASE STYLES
+    ======================================
+*/
+:root {
+    --primary-color: #A00000; /* Deep Red/Maroon */
+    --secondary-color: #F8F8F8; /* Light Off-White */
+    --accent-color: #008080; /* Teal/Cyan Accent */
+    --dark-color: #222222;
+    --font-family: 'Georgia', serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--secondary-color);
+    padding-top: 80px; /* Space for fixed header */
+}
+
+/*
+    ======================================
+    HEADER & NAVIGATION
+    ======================================
+*/
+header {
+    background-color: var(--dark-color);
+    color: var(--secondary-color);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 10px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul a:hover, nav ul a.active {
+    color: var(--primary-color);
+}
+
+/* Underline Animation on Hover */
+nav ul a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--primary-color);
+    transition: width 0.4s ease;
+}
+
+nav ul a:hover:after, nav ul a.active:after {
+    width: 100%;
+    left: 0;
+    background: var(--primary-color);
+}
+
+
+/*
+    ======================================
+    GENERAL LAYOUT & SECTIONS
+    ======================================
+*/
+main {
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.8rem;
+    color: var(--primary-color);
+}
+
+section {
+    padding: 40px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #006666;
+    transform: scale(1.05);
+}
+
+.placeholder-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--accent-color);
+}
+
+/*
+    ======================================
+    HOME PAGE STYLES
+    ======================================
+*/
+.heading {
+    font-family: cursive;
+
+    text-shadow: 
+        0 0 5px rgba(0, 0, 255, 0.6), 
+        0 0 10px rgba(0, 0, 255, 0.6), 
+        0 0 20px var(--accent-color), 
+        0 0 40px var(--accent-color), 
+        0 0 80px var(--accent-color);
+}
+
+.hero-section {
+    background-image: url('sato-japanese-cuisine.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 80px 0;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 10px;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    color: white; /* Base color for neon flicker */
+}
+
+.tagline {
+    font-family: cursive;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #ffffff;
+    text-shadow: 
+        0 0 5px rgba(0, 0, 255, 0.6), 
+        0 0 10px rgba(0, 0, 255, 0.6), 
+        0 0 20px var(--accent-color), 
+        0 0 40px var(--accent-color), 
+        0 0 80px var(--accent-color);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.about-content .text-content {
+    flex: 1;
+}
+
+/* Featured Dish Card */
+.dish-card {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+}
+
+/*
+    ======================================
+    HOURS & LOCATION STYLES
+    ======================================
+*/
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.responsive-table th, .responsive-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.responsive-table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.responsive-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.map-placeholder {
+    height: 300px;
+    width: 100%;
+    background-color: #cccccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border: 5px solid var(--primary-color);
+    border-radius: 8px;
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    text-align: center;
+}
+
+/*
+    ======================================
+    MENU PAGE STYLES
+    ======================================
+*/
+.menu-page h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.menu-intro {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 40px;
+}
+
+.menu-category {
+    margin-bottom: 40px;
+}
+
+.menu-category h2 {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.menu-item {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.menu-item h3 {
+    margin-top: 0;
+    color: var(--dark-color);
+}
+
+.menu-item .description {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.menu-item .price {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+
+/*
+    ======================================
+    FOOTER
+    ======================================
+*/
+footer {
+    background-color: var(--dark-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 15px 5%;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+/*
+    ======================================
+    ADVANCED CSS ANIMATIONS & KEYFRAMES
+    ======================================
+*/
+
+/* 1. Neon Flicker Animation (Used on h1 in index.html) */
+.neon-flicker {
+    color: #fff;
+    text-shadow: 
+        0 0 5px rgba(255, 0, 0, 0.6), 
+        0 0 10px rgba(255, 0, 0, 0.6), 
+        0 0 20px var(--primary-color), 
+        0 0 40px var(--primary-color), 
+        0 0 80px var(--primary-color);
+    animation: neon-flicker 1.5s infinite alternate;
+}
+
+@keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 
+            0 0 5px rgba(255, 0, 0, 0.8), 
+            0 0 15px var(--primary-color), 
+            0 0 30px var(--primary-color);
+        opacity: 1;
+    }
+    20%, 24%, 55% {        
+        text-shadow: none;
+        opacity: 0.7;
+    }
+}
+
+/* 2. Spin-on-Hover (Used on .dish-card in index.html) */
+.spin-on-hover:hover {
+    transform: rotateY(15deg) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 3. Pulse Shadow Animation (Used on .map-placeholder in hours.html) */
+.pulse-shadow {
+    animation: pulse-shadow 2s infinite ease-in-out;
+}
+
+@keyframes pulse-shadow {
+    0% {
+        box-shadow: 0 0 0 0px rgba(0, 128, 128, 0.7); /* Accent Color */
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(0, 128, 128, 0.0);
+    }
+    100% {
+        box-shadow: 0 0 0 0px rgba(0, 128, 128, 0.7);
+    }
+}
+
+/* 4. Float-Up-on-Load Animation (Used on .menu-item in menu.html) */
+.float-up-on-load {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: float-up 0.6s ease-out forwards;
+}
+
+/* Applying staggered delay to menu items for a cooler effect */
+.menu-item:nth-child(1) { animation-delay: 0.1s; }
+.menu-item:nth-child(2) { animation-delay: 0.2s; }
+.menu-item:nth-child(3) { animation-delay: 0.3s; }
+.menu-item:nth-child(4) { animation-delay: 0.4s; }
+.menu-item:nth-child(5) { animation-delay: 0.5s; }
+.menu-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes float-up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 5. Fade-in-Delay for the Hours Table (hours.html) */
+.fade-in-delay {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/*
+    ======================================
+    MEDIA QUERIES (Responsiveness)
+    ======================================
+*/
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
+    
+    header {
+        flex-direction: column;
+        padding: 10px 5%;
+    }
+
+    nav ul {
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .placeholder-image {
+        max-width: 100%;
+    }
+
+    .responsive-table thead {
+        display: none; /* Hide header on small screens */
+    }
+
+    .responsive-table, .responsive-table tbody, .responsive-table tr, .responsive-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .responsive-table tr {
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+    }
+
+    .responsive-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .responsive-table td::before {
+        /* Create pseudo-element to show column header */
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
